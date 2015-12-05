@@ -1,0 +1,16 @@
+<%= simple_form_for(@book) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :book_name %>
+    <%= f.input :isbn, label: 'ISBN' %>
+    <%= f.input :publisher, as: :select, collection: Book.publishers %>
+    <%= f.input :author %>
+<%= f.input :price %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, 'Save', class: 'btn btn-primary' %>
+    <%= link_to 'Cancel', books_path, class: 'btn btn-defult' %>
+  </div>
+<% end %>
